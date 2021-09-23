@@ -9,6 +9,7 @@ import { Layout, Menu } from "antd";
 import CartWidget from "./component/CartWidget";
 import ItemListContainer from "./component/ItemListContainer";
 import ItemDetailContainer from "./component/ItemDetailContainer";
+import Cart from "./component/Cart";
 
 const { Header, Content, Footer } = Layout;
 
@@ -49,6 +50,7 @@ function App() {
           />
           <Route path="/category/:id" component={ItemListContainer} />
           <Route path="/detail/:id" component={ItemDetailContainer} />
+          <Route exact path='/cart' component={Cart} />
         </Content>
       </Switch>
       <Footer style={{ textAlign: "center" }}>
