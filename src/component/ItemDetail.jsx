@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Typography, Card } from "antd";
+import { Typography, Button } from "antd";
+import { Link } from "react-router-dom";
 import Item from "./Item";
-import ItemCount from './ItemCount';
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
- const [cantidadSelect, setCantidadSelect] = useState (null)
-  
- const onAdd = (cant) => {
+  const [cantidadSelect, setCantidadSelect] = useState(null);
+
+  const onAdd = (cant) => {
     console.log(cant);
-    setCantidadSelect(cant)
+    setCantidadSelect(cant);
   };
   return (
     <>
@@ -16,10 +17,19 @@ const ItemDetail = ({ item }) => {
         Detalle de producto {item.title}
       </Typography.Title>
       <p>(En proceso)</p>
-      <Card actions={[<ItemCount stock={5} initial={1} onAdd={onAdd} />]}>
       <Item product={item} showDetail={false} />
-      </Card>
       
+      <div className="detail-action">
+        {cantidadSelect ? (
+          <Link to={"/cart"}>
+            <Button type="primary" size={"small"} shape="round">
+              Finalizar Compra
+            </Button>
+          </Link>
+        ) : (
+          <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        )}
+      </div>
     </>
   );
 };

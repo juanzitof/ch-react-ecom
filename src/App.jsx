@@ -10,6 +10,7 @@ import CartWidget from "./component/CartWidget";
 import ItemListContainer from "./component/ItemListContainer";
 import ItemDetailContainer from "./component/ItemDetailContainer";
 import Cart from "./component/Cart";
+import {cartContext} from "./context/cartContext";
 
 const { Header, Content, Footer } = Layout;
 
