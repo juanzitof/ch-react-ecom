@@ -3,14 +3,18 @@ import { Typography, Button } from "antd";
 import { Link } from "react-router-dom";
 import Item from "./Item";
 import ItemCount from "./ItemCount";
+import { useCartContext } from "../context/cartContext";
 
 const ItemDetail = ({ item }) => {
   const [cantidadSelect, setCantidadSelect] = useState(null);
 
-  const onAdd = (cant) => {
-    console.log(cant);
-    setCantidadSelect(cant);
+  const { addToCart } = useCartContext();
+
+  const onAdd = (quantity) => {
+    setCantidadSelect(quantity);
+    addToCart({ item: item, quantity : quantity });
   };
+
   return (
     <>
       <Typography.Title level={2}>
@@ -18,7 +22,7 @@ const ItemDetail = ({ item }) => {
       </Typography.Title>
       <p>(En proceso)</p>
       <Item product={item} showDetail={false} />
-      
+
       <div className="detail-action">
         {cantidadSelect ? (
           <Link to={"/cart"}>
