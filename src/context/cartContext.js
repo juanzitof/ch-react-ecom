@@ -30,7 +30,7 @@ export default function CartContextProvider({ children }) {
   };
 
   return (
-    <CartContextProvider
+    <cartContext.Provider
       value={{
         cartList,
         addToCart,
@@ -39,6 +39,6 @@ export default function CartContextProvider({ children }) {
       }}
     >
       {children}
-    </CartContextProvider>
+    </cartContext.Provider>
   );
 }

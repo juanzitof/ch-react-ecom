@@ -9,10 +9,9 @@ const Cart = () => {
     <>
       {cartList.map((product) => (
         <div key={product.id}>
-          <h3> {product.product.title} </h3>
-          <h3> {product.product.description} </h3>
-          <h3> {product.product.foto} </h3>
-          <h3> {product.product.price} </h3>
+          <h3> {product.description} </h3>
+          <h3> {product.foto} </h3>
+          <h3> {product.price} </h3>
           <Button
             type="primary"
             size={"small"}
