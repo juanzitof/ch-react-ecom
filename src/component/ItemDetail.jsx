@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Typography, Button } from "antd";
+import { Button } from "antd";
 import { Link } from "react-router-dom";
 import Item from "./Item";
 import ItemCount from "./ItemCount";
