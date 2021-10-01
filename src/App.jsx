@@ -51,7 +51,7 @@ function App() {
           </Content>
         </Switch>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
+          Amor por los Aromas ©2021 Created by JF
         </Footer>
       </Layout>
     </CartContextProvider>

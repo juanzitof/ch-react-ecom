@@ -1,27 +1,27 @@
 import { useCartContext } from "../context/cartContext";
-import { Button } from "antd";
-import { CloseOutlined } from "@ant-design/icons";
+import CartTable from "./CartTable";
+import { Link } from "react-router-dom";
+import { Button, Empty } from "antd";
 
 const Cart = () => {
   const { cartList, deleteCart } = useCartContext();
 
   return (
     <>
-      {cartList.map((product) => (
-        <div key={product.id}>
-          <h3> {product.description} </h3>
-          <h3> {product.foto} </h3>
-          <h3> {product.price} </h3>
-          <Button
-            type="primary"
-            size={"small"}
-            shape="round"
-            onClick={() => deleteCart(product)}
-          >
-            <CloseOutlined />
+      {cartList.length === 0 ? (
+        <Empty description={<span>Tu carrito esta vacio</span>}>
+          <Link to="/">
+            <Button type="primary">Volver al catalogo</Button>
+          </Link>
+        </Empty>
+      ) : (
+        <>
+          <CartTable products={cartList} onDelete={deleteCart} />
+          <Button type="primary" size="small" shape="round">
+            Terminar mi compra
           </Button>
-        </div>
-      ))}
+        </>
+      )}
     </>
   );
 };

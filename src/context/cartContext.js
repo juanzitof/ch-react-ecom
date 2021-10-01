@@ -17,6 +17,12 @@ export default function CartContextProvider({ children }) {
       setCartList([...list, data]);
     }
   };
+  const getCount = () => {
+    let totalProduct = 0;
+    cartList.map((item) => (totalProduct += item.quantity));
+
+    return totalProduct;
+  };
 
   function deleteList() {
     setCartList([]);
@@ -36,6 +42,7 @@ export default function CartContextProvider({ children }) {
         addToCart,
         deleteCart,
         deleteList,
+        getCount,
       }}
     >
       {children}

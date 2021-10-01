@@ -17,10 +17,6 @@ const ItemDetail = ({ item }) => {
 
   return (
     <>
-      <Typography.Title level={2}>
-        Detalle de producto {item.title}
-      </Typography.Title>
-      <p>(En proceso)</p>
       <Item product={item} showDetail={false} />
 
       <div className="detail-action">
@@ -31,7 +27,7 @@ const ItemDetail = ({ item }) => {
             </Button>
           </Link>
         ) : (
-          <ItemCount stock={5} initial={1} onAdd={onAdd} />
+          <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
         )}
       </div>
     </>
