@@ -9,8 +9,7 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
   const [notItem, setnotItem] = useState(false);
   const { id } = useParams();
-  
-  
+
   useEffect(() => {
     if (id) {
       const dbQuery = getFirestore();
@@ -18,20 +17,21 @@ const ItemDetailContainer = () => {
         .collection("products")
         .doc(id)
         .get()
-        
-        .then((resp) => {console.log('test',item)
-          setItem({ id: resp.id, ...resp.data() });
+        .then((resp) => {
+          if (resp.data()) {
+            setItem({ id: resp.id, ...resp.data() });
+            console.log("test", resp.data());
+          } else {
+            setnotItem(true);
+          }
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
-    } else {
-      setnotItem(true);
     }
   }, [id]);
-  if(notItem){
-    return <Redirect to="/" />
 
-
+  if (notItem) {
+    return <Redirect to="/" />;
   }
   return (
     <>
