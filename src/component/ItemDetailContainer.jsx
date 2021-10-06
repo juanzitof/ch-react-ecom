@@ -1,30 +1,44 @@
 import { useState, useEffect } from "react";
-import { getDetail } from "../utils/mock";
-import { useParams } from "react-router-dom";
+import { getFirestore } from "../service/getFirebase";
+import { useParams, Redirect } from "react-router-dom";
 import ItemDetail from "../component/ItemDetail";
 import { Spin } from "antd";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
+  const [notItem, setnotItem] = useState(false);
   const { id } = useParams();
   
+  
   useEffect(() => {
-    getDetail(id)
-      .then((result) => {
-         setItem(result)
-        console.log(result)})
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+    if (id) {
+      const dbQuery = getFirestore();
+      dbQuery
+        .collection("products")
+        .doc(id)
+        .get()
+        
+        .then((resp) => {console.log('test',item)
+          setItem({ id: resp.id, ...resp.data() });
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    } else {
+      setnotItem(true);
+    }
   }, [id]);
+  if(notItem){
+    return <Redirect to="/" />
 
+
+  }
   return (
     <>
       {loading ? (
         <div className="loading-center">
           <Spin tip="Cargando" size="large" />
         </div>
-        
       ) : (
         <ItemDetail item={item} />
       )}

@@ -23,7 +23,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   const agregarCarrito = () => {
     onAdd(count);
-    message.success('Se agregaron los prodcutos a tu carrito');
+    message.success('Se agregaron los productos a tu carrito');
   };
 
   return (

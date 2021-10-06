@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Typography, Spin } from "antd";
-import { getFetch } from "../utils/mock";
 import ItemList from "./ItemList";
+import { getFirestore } from "../service/getFirebase";
 
 const ItemListContainer = ({ gretting }) => {
   const [products, setProducts] = useState([]);
@@ -11,27 +11,32 @@ const ItemListContainer = ({ gretting }) => {
 
   useEffect(() => {
     if (id) {
-      console.log(id);
-      getFetch()
-        .then((respuesta) => {
-          let filterProduct = respuesta.filter(
-            (prod) => prod.category.toLowerCase() === id
+      const dbQuery = getFirestore();
+      dbQuery
+        .collection("products")
+        .where("category", "==", id)
+        .get()
+        .then((resp) => {
+          setProducts(
+            resp.docs.map((product) => ({ id: product.id, ...product.data() }))
           );
-          setProducts(filterProduct);
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
     } else {
-      getFetch()
-        .then((respuesta) => {
-          setProducts(respuesta);
+      const dbQuery = getFirestore();
+      dbQuery
+        .collection("products")
+        .get()
+        .then((resp) => {
+          setProducts(
+            resp.docs.map((product) => ({ id: product.id, ...product.data() }))
+          );
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
     }
   }, [id]);
-
-  console.log(id);
 
   return (
     <div>
@@ -49,4 +54,5 @@ const ItemListContainer = ({ gretting }) => {
     </div>
   );
 };
+
 export default ItemListContainer;

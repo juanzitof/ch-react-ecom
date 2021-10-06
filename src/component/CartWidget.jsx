@@ -5,7 +5,7 @@ import { useCartContext } from "../context/cartContext";
 
 const CartWidget = () => {
   const { getCount } = useCartContext();
-  console.log(getCount());
+
   const count = getCount();
   return (
     <>
