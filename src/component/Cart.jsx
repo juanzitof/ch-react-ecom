@@ -42,9 +42,9 @@ const Cart = () => {
       const id = cartItem.item.id;
       const title = cartItem.item.title;
       const price = cartItem.item.price * cartItem.quantity;
-      const quantity = cartItem.item.quantity;
+      
 
-      return { id, title, price, quantity};
+      return { id, title, price, };
     });
 
 
