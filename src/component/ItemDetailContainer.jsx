@@ -20,7 +20,6 @@ const ItemDetailContainer = () => {
         .then((resp) => {
           if (resp.data()) {
             setItem({ id: resp.id, ...resp.data() });
-            console.log("test", resp.data());
           } else {
             setnotItem(true);
           }

@@ -70,3 +70,7 @@
 .cart-background{
   background-color: transparent;
 }
+.footer{
+  text-align: center;
+  max-height: 100% !important;
+}

@@ -25,6 +25,7 @@ const CartTable = ({ products, onDelete }) => {
       key: "total",
       render: (text, o) => `$${o.item.price * o.quantity}`,
     },
+    
     {
       title: "",
       dataIndex: "item",
@@ -43,8 +44,7 @@ const CartTable = ({ products, onDelete }) => {
       },
     },
   ];
-  console.log(products);
-  return <Table columns={columns} dataSource={products} pagination={false} />;
+  return <Table columns={columns} dataSource={products} pagination={false}  title={() => 'Detalle de la compra' } footer={() => 'Precio total'} />;
 };
 
 export default CartTable;

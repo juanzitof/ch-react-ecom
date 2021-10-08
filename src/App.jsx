@@ -11,7 +11,6 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <CartContextProvider>
       <Layout>
@@ -50,7 +49,7 @@ function App() {
             <Route exact path="/cart" component={Cart} />
           </Content>
         </Switch>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer className="footer">
           Amor por los Aromas ©2021 Created by JF
         </Footer>
       </Layout>
