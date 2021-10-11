@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Typography, Spin } from "antd";
-import ItemList from "./ItemList";
-import { getFirestore } from "../service/getFirebase";
+import ItemList from "../ItemList";
+import { getFirestore } from "../../service/getFirebase";
 
 const ItemListContainer = ({ gretting }) => {
   const [products, setProducts] = useState([]);

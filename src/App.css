@@ -74,3 +74,8 @@
   text-align: center;
   max-height: 100% !important;
 }
+
+.footer-table{
+  text-align: right;
+  margin-right: 100px;
+}

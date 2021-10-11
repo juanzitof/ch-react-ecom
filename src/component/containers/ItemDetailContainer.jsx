@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { getFirestore } from "../service/getFirebase";
+import { getFirestore } from "../../service/getFirebase";
 import { useParams, Redirect } from "react-router-dom";
-import ItemDetail from "../component/ItemDetail";
+import ItemDetail from "../ItemDetail";
 import { Spin } from "antd";
 
 const ItemDetailContainer = () => {

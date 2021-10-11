@@ -28,6 +28,10 @@ export default function CartContextProvider({ children }) {
     setCartList([]);
   }
 
+  const accumulateBuy = () => {
+    return cartList.reduce((acum, valor)=>(acum + (valor.quantity * valor.item.price)), 0)
+  }
+
   const deleteCart = (item) => {
     const deleteProduct = cartList.filter(
       (prod) => prod.item.id !== item.item.id
@@ -42,6 +46,7 @@ export default function CartContextProvider({ children }) {
         addToCart,
         deleteCart,
         deleteList,
+        accumulateBuy,
         getCount,
       }}
     >

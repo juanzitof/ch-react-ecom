@@ -1,7 +1,7 @@
 import { Table, Button, Tooltip } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
-const CartTable = ({ products, onDelete }) => {
+const CartTable = ({ products, onDelete, total }) => {
   const columns = [
     {
       title: "Nombre",
@@ -12,24 +12,28 @@ const CartTable = ({ products, onDelete }) => {
       title: "Cantidad",
       dataIndex: "quantity",
       key: "quantity",
+      width: 120,
     },
     {
       title: "Precio",
       dataIndex: ["item", "price"],
       key: "price",
+      width: 120,
       render: (text) => `$${text}`,
     },
     {
       title: "Total",
       dataIndex: "item",
       key: "total",
+      width: 120,
       render: (text, o) => `$${o.item.price * o.quantity}`,
     },
-    
+
     {
       title: "",
       dataIndex: "item",
       key: "action",
+      width: 80,
       render: (item, o) => {
         return (
           <Tooltip title="eliminar del carrito">
@@ -44,7 +48,15 @@ const CartTable = ({ products, onDelete }) => {
       },
     },
   ];
-  return <Table columns={columns} dataSource={products} pagination={false}  title={() => 'Detalle de la compra' } footer={() => 'Precio total'} />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={products}
+      pagination={false}
+      title={() => "Detalle de la compra"}
+      footer={()=> <p className="footer-table">Total: ${total}</p>}
+    />
+  );
 };
 
 export default CartTable;

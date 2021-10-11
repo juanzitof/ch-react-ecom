@@ -1,15 +1,15 @@
-import { useCartContext } from "../context/cartContext";
-import CartTable from "./CartTable";
+import { useCartContext } from "../../context/cartContext";
+import CartTable from "../CartTable";
 import { Link } from "react-router-dom";
 import { Button, Empty, Modal, message, Form} from "antd";
 import { useState } from "react";
-import FormCart from "./FormCart";
+import FormCart from "../FormCart";
 import firebase from "firebase";
 import "firebase/firestore";
-import { getFirestore } from "../service/getFirebase";
+import { getFirestore } from "../../service/getFirebase";
 
-const Cart = () => {
-  const { cartList, deleteCart, deleteList } = useCartContext();
+const CartContainer = () => {
+  const { cartList, deleteCart, deleteList, accumulateBuy } = useCartContext();
   const [isModalOpen, setisModalOpen] = useState(false);
   const [isSendingData, setIsSendingData] = useState(false);
   const [form] = Form.useForm();
@@ -75,7 +75,8 @@ const Cart = () => {
         </Empty>
       ) : (
         <>
-          <CartTable products={cartList} onDelete={deleteCart} />
+          <CartTable products={cartList} onDelete={deleteCart} total={accumulateBuy()}/>
+
           <Button type="primary" size="small" shape="round" onClick={showModal}>
             Terminar mi compra
           </Button>
@@ -96,4 +97,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartContainer;
