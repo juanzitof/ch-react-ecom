@@ -12,7 +12,7 @@ const ItemDetail = ({ item }) => {
 
   const onAdd = (quantity) => {
     setCantidadSelect(quantity);
-    addToCart({ item: item, quantity : quantity });
+    addToCart({ item: item, quantity: quantity });
   };
 
   return (
@@ -25,6 +25,11 @@ const ItemDetail = ({ item }) => {
             <Button type="primary" size={"small"} shape="round">
               Finalizar Compra
             </Button>
+            <Link to="/">
+              <Button type="primary" size={"small"} shape="round">
+                Volver al catalogo
+              </Button>
+            </Link>
           </Link>
         ) : (
           <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />

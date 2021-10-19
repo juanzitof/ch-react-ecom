@@ -1,7 +1,7 @@
 import { useCartContext } from "../../context/cartContext";
 import CartTable from "../CartTable";
 import { Link } from "react-router-dom";
-import { Button, Empty, Modal, message, Form} from "antd";
+import { Button, Empty, Modal, message, Form } from "antd";
 import { useState } from "react";
 import FormCart from "../FormCart";
 import firebase from "firebase";
@@ -31,7 +31,6 @@ const CartContainer = () => {
   };
 
   const sendData = (userInfo) => {
-
     let order = {};
 
     order.date = firebase.firestore.Timestamp.fromDate(new Date());
@@ -44,9 +43,8 @@ const CartContainer = () => {
       const price = cartItem.item.price * cartItem.quantity;
       const quantity = cartItem.quantity;
 
-      return { id, title, price, quantity};
+      return { id, title, price, quantity };
     });
-
 
     const db = getFirestore();
 
@@ -75,11 +73,21 @@ const CartContainer = () => {
         </Empty>
       ) : (
         <>
-          <CartTable products={cartList} onDelete={deleteCart} total={accumulateBuy()}/>
+          <CartTable
+            products={cartList}
+            onDelete={deleteCart}
+            total={accumulateBuy()}
+          />
 
           <Button type="primary" size="small" shape="round" onClick={showModal}>
             Terminar mi compra
           </Button>
+          <Link to="/">
+            <Button type="primary" size={"small"} shape="round">
+              Volver al catalogo
+            </Button>
+          </Link>
+
           <Modal
             confirmLoading={isSendingData}
             title="Formulario Finalizar Compra"

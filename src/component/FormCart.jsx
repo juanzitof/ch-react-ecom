@@ -1,8 +1,17 @@
 import { Form, Input } from "antd";
 
+const validateMessages = {
+  required: "es requerido!",
+  types: {
+    email: "el email ingresado no es valido!",
+    number: "ingrese solo numeros!",
+  },
+};
+
 const FormCart = ({ form }) => {
   return (
     <Form
+      validateMessages={validateMessages}
       form={form}
       name="basic"
       labelCol={{
@@ -18,7 +27,7 @@ const FormCart = ({ form }) => {
     >
       <Form.Item
         label="Nombre"
-        name="nombre"
+        name={["user", "name"]}
         rules={[
           {
             required: true,
@@ -31,11 +40,10 @@ const FormCart = ({ form }) => {
 
       <Form.Item
         label="Numero de telefono"
-        name="numero de telefono"
+        name={["user", "number"]}
         rules={[
           {
-            required: true,
-            message: "Ingrese su numero de telefono!",
+            type: "number",
           },
         ]}
       >
@@ -44,11 +52,10 @@ const FormCart = ({ form }) => {
 
       <Form.Item
         label="Email"
-        name="email"
+        name={["user", "email"]}
         rules={[
           {
-            required: true,
-            message: "Por favor ingrese su email!",
+            type: "email",
           },
         ]}
       >
