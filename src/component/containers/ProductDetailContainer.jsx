@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { getFirestore } from "../../service/getFirebase";
 import { useParams, Redirect } from "react-router-dom";
-import ItemDetail from "../ItemDetail";
+import ProductDetail from "../ProductDetail";
 import { Spin } from "antd";
 
-const ItemDetailContainer = () => {
+const ProductDetailContainer = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
   const [notItem, setnotItem] = useState(false);
@@ -41,9 +41,9 @@ const ItemDetailContainer = () => {
           <Spin tip="Cargando" size="large" />
         </div>
       ) : (
-        <ItemDetail item={item} />
+        <ProductDetail item={item} />
       )}
     </>
   );
 };
-export default ItemDetailContainer;
+export default ProductDetailContainer;

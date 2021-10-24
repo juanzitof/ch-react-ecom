@@ -2,7 +2,7 @@ import { Card } from "antd";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 
-const Item = ({ product, showDetail = true }) => {
+const ProductCard= ({ product, showDetail = true }) => {
   return (
     <div className="card-component" key={product.id}>
       <Card
@@ -22,4 +22,4 @@ const Item = ({ product, showDetail = true }) => {
   );
 };
 
-export default Item;
+export default ProductCard;

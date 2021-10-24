@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import Item from "./Item";
+import ProductCard from "./ProductCard";
 import ItemCount from "./ItemCount";
 import { useCartContext } from "../context/cartContext";
 
-const ItemDetail = ({ item }) => {
+const ProductDetail = ({ item }) => {
   const [cantidadSelect, setCantidadSelect] = useState(null);
 
   const { addToCart } = useCartContext();
@@ -17,7 +17,7 @@ const ItemDetail = ({ item }) => {
 
   return (
     <>
-      <Item product={item} showDetail={false} />
+      <ProductCard product={item} showDetail={false} />
 
       <div className="detail-action">
         {cantidadSelect ? (
@@ -39,4 +39,4 @@ const ItemDetail = ({ item }) => {
   );
 };
 
-export default ItemDetail;
+export default ProductDetail;

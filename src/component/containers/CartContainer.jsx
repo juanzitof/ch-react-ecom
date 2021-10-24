@@ -10,7 +10,7 @@ import "firebase/firestore";
 import { getFirestore } from "../../service/getFirebase";
 
 
-const CartContainer = ({}) => {
+const CartContainer = () => {
   const { cartList, deleteCart, deleteList, accumulateBuy } = useCartContext();
 
   const [isModalOpen, setisModalOpen] = useState(false);

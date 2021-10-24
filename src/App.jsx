@@ -3,7 +3,7 @@ import { Switch, Route, Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import CartWidget from "./component/CartWidget";
 import ItemListContainer from "./component/containers/ItemListContainer";
-import ItemDetailContainer from "./component/containers/ItemDetailContainer";
+import ProductDetailContainer from "./component/containers/ProductDetailContainer";
 import CartContainer from "./component/containers/CartContainer";
 import CartContextProvider from "./context/cartContext";
 import PurchaseResult from "./component/PurchaseResult";
@@ -52,7 +52,7 @@ function App() {
               component={() => <ItemListContainer gretting="Bienvenidos" />}
             />
             <Route path="/category/:id" component={ItemListContainer} />
-            <Route path="/detail/:id" component={ItemDetailContainer} />
+            <Route path="/detail/:id" component={ProductDetailContainer} />
             <Route exact path="/cart" component={CartContainer} />
             <Route path="/gracias/:id" component={PurchaseResult} />
           
