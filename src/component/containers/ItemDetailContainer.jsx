@@ -8,11 +8,13 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
   const [notItem, setnotItem] = useState(false);
+  
   const { id } = useParams();
 
   useEffect(() => {
     if (id) {
       const dbQuery = getFirestore();
+      
       dbQuery
         .collection("products")
         .doc(id)

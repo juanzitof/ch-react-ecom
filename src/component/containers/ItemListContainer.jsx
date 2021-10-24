@@ -10,32 +10,21 @@ const ItemListContainer = ({ gretting }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
-      const dbQuery = getFirestore();
-      dbQuery
-        .collection("products")
-        .where("category", "==", id)
-        .get()
-        .then((resp) => {
-          setProducts(
-            resp.docs.map((product) => ({ id: product.id, ...product.data() }))
-          );
-        })
-        .catch((error) => console.log(error))
-        .finally(() => setLoading(false));
-    } else {
-      const dbQuery = getFirestore();
-      dbQuery
-        .collection("products")
-        .get()
-        .then((resp) => {
-          setProducts(
-            resp.docs.map((product) => ({ id: product.id, ...product.data() }))
-          );
-        })
-        .catch((error) => console.log(error))
-        .finally(() => setLoading(false));
-    }
+    const dbQuery = getFirestore();
+
+    const listProduct = id
+      ? dbQuery.collection("products").where("category", "==", id)
+      : dbQuery.collection("products");
+
+    listProduct
+      .get()
+      .then((resp) => {
+        setProducts(
+          resp.docs.map((product) => ({ id: product.id, ...product.data() }))
+        );
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   }, [id]);
 
   return (

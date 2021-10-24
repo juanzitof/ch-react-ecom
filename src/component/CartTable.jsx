@@ -1,8 +1,15 @@
-import { Table, Button, Tooltip } from "antd";
+import { Table, Button, Tooltip, Avatar } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
 const CartTable = ({ products, onDelete, total }) => {
   const columns = [
+    {
+      title: "Foto",
+      dataIndex: ["item", "photo"],
+      key: "photo",
+      width: 50,
+      render: (photo) => <Avatar src={photo} shape="square" size={120} />,
+    },
     {
       title: "Nombre",
       dataIndex: ["item", "title"],

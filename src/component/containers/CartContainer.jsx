@@ -1,17 +1,22 @@
 import { useCartContext } from "../../context/cartContext";
 import CartTable from "../CartTable";
-import { Link } from "react-router-dom";
-import { Button, Empty, Modal, message, Form } from "antd";
+import { Link, Redirect } from "react-router-dom";
+import { Button, Empty, Modal, Form } from "antd";
+
 import { useState } from "react";
 import FormCart from "../FormCart";
 import firebase from "firebase";
 import "firebase/firestore";
 import { getFirestore } from "../../service/getFirebase";
 
-const CartContainer = () => {
+
+const CartContainer = ({}) => {
   const { cartList, deleteCart, deleteList, accumulateBuy } = useCartContext();
+
   const [isModalOpen, setisModalOpen] = useState(false);
   const [isSendingData, setIsSendingData] = useState(false);
+  const [successfulorder, setSuccessfulorder] = useState(false);
+
   const [form] = Form.useForm();
 
   const showModal = () => {
@@ -52,16 +57,20 @@ const CartContainer = () => {
 
       .add(order)
       .then((resp) => {
-        console.log("data", resp);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
         setIsSendingData(false);
         hideModal(true);
-        message.success("Su pedido fue enviando con exito!");
+        setSuccessfulorder(resp.id);
         deleteList();
-      });
+      })
+      .catch((err) => console.log(err))
   };
+  if (successfulorder) {
+    return (
+      <>
+        <Redirect to={`/gracias/${successfulorder}`} />
+      </>
+    );
+  }
 
   return (
     <>

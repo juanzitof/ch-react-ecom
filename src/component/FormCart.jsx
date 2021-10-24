@@ -43,7 +43,7 @@ const FormCart = ({ form }) => {
         name={["user", "number"]}
         rules={[
           {
-            type: "number",
+            type: "",
           },
         ]}
       >
