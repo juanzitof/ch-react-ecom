@@ -24,7 +24,7 @@ const ProductDetail = ({ item }) => {
       <div className="detail-action">
         {cantidadSelect ? (
           <Link to={"/cart"}>
-            <Button type="primary" size={"small"} shape="round" className="button-finally">
+            <Button type="primary" size={"large"} shape="round" >
               Finalizar Compra
             </Button>
           </Link>

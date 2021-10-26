@@ -7,7 +7,7 @@ const ProductCard= ({ product, showDetail = true }) => {
     <div className="card-component" key={product.id}>
       <Card
         style={{ width: "100%" }}
-        cover={<img className="thumb" src={product.photo} />}
+        cover={<img className="thumb" src={product.photo} alt={product.title} />}
       >
         <Card.Meta title={product.title} description={product.description} />
         <span className="price">${product.price}</span>

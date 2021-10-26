@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.less";
 import { Switch, Route, Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import CartWidget from "./component/CartWidget";
