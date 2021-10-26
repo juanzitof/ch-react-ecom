@@ -20,11 +20,7 @@ function App() {
           id="components-layout-demo-fixed"
           style={{ position: "fixed", zIndex: 1, width: "100%" }}
         >
-          <Link to="/">
-            <div className="logo">
-            <Logo />
-            </div>
-          </Link>
+          <Logo />
 
           <Menu theme="dark" mode="horizontal" selectedKeys={[pathname]}>
             <Menu.Item key="/category/adornos">
@@ -41,10 +37,8 @@ function App() {
               <CartWidget />
             </Menu.Item>
           </Menu>
-
         </Header>
         <Switch>
-
           <Content className="site-layout">
             <Route
               exact
@@ -55,14 +49,12 @@ function App() {
             <Route path="/detail/:id" component={ProductDetailContainer} />
             <Route exact path="/cart" component={CartContainer} />
             <Route path="/gracias/:id" component={PurchaseResultContainer} />
-          
           </Content>
         </Switch>
 
         <Footer className="footer">
           Amor por los Aromas ©2021 Created by JF
         </Footer>
-
       </Layout>
     </CartContextProvider>
   );
