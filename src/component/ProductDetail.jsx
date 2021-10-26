@@ -3,6 +3,7 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import ItemCount from "./ItemCount";
+import BackButton from "../component/BackButton";
 import { useCartContext } from "../context/cartContext";
 
 const ProductDetail = ({ item }) => {
@@ -17,19 +18,15 @@ const ProductDetail = ({ item }) => {
 
   return (
     <>
+      <BackButton />
       <ProductCard product={item} showDetail={false} />
-
+     
       <div className="detail-action">
         {cantidadSelect ? (
           <Link to={"/cart"}>
-            <Button type="primary" size={"small"} shape="round">
+            <Button type="primary" size={"small"} shape="round" className="button-finally">
               Finalizar Compra
             </Button>
-            <Link to="/">
-              <Button type="primary" size={"small"} shape="round">
-                Volver al catalogo
-              </Button>
-            </Link>
           </Link>
         ) : (
           <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />

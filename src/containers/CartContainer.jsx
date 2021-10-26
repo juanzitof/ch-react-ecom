@@ -2,7 +2,7 @@ import { useCartContext } from "../context/cartContext";
 import CartTable from "../component/CartTable";
 import { Link, Redirect } from "react-router-dom";
 import { Button, Empty, Modal, Form } from "antd";
-
+import BackButton from '../component/BackButton';
 import { useState } from "react";
 import FormCart from "../component/FormCart";
 import firebase from "firebase";
@@ -82,20 +82,18 @@ const CartContainer = () => {
         </Empty>
       ) : (
         <>
+          <BackButton />
+
           <CartTable
             products={cartList}
             onDelete={deleteCart}
             total={accumulateBuy()}
           />
+          
 
-          <Button type="primary" size="small" shape="round" onClick={showModal}>
+          <Button type="primary" size="large" shape="round" onClick={showModal} className="button-finally">
             Terminar mi compra
           </Button>
-          <Link to="/">
-            <Button type="primary" size={"small"} shape="round">
-              Volver al catalogo
-            </Button>
-          </Link>
 
           <Modal
             confirmLoading={isSendingData}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button, Tooltip, Space } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { message } from "antd";
@@ -54,11 +53,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           />
         </Tooltip>
 
-        <Link to="/">
-          <Button type="primary" size={"small"} shape="round">
-            Volver al catalogo
-          </Button>
-        </Link>
       </Space>
     </div>
   );

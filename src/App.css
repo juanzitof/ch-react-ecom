@@ -6,10 +6,18 @@
 
 #components-layout-demo-fixed .logo {
   float: left;
-  width: 30px;
-  height: 30px;
-  size: 20px;
-  
+  width: 140px;
+  height: 64px;
+  overflow: hidden;
+}
+.logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.logo a img {
+  width: auto;
+  height: 54px;
 }
 
 .ant-layout {
@@ -78,4 +86,14 @@
 .footer-table{
   text-align: right;
   margin-right: 100px;
+}
+.button-finally{
+  margin: 30px auto;
+  display: block;
+}
+
+.card-component .ant-btn {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
 }
