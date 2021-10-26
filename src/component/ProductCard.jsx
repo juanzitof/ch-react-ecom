@@ -1,22 +1,17 @@
 import { Card } from "antd";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import ItemCount from "./ItemCount";
 
-const Item = ({ product, showDetail = true }) => {
-  const onAdd = (cant) => {
-    console.log(cant);
-  };
+const ProductCard= ({ product, showDetail = true }) => {
   return (
     <div className="card-component" key={product.id}>
       <Card
         style={{ width: "100%" }}
-        cover={<img className="thumb" src={product.foto} />}
-        actions={[<ItemCount stock={5} initial={1} onAdd={onAdd} />]}
+        cover={<img className="thumb" src={product.photo} alt={product.title} />}
       >
         <Card.Meta title={product.title} description={product.description} />
-        <span className="price">{product.price}</span>
-        
+        <span className="price">${product.price}</span>
+
         {showDetail ? (
           <Link to={`/detail/${product.id}`}>
             <Button type="primary">Detalles</Button>
@@ -27,4 +22,4 @@ const Item = ({ product, showDetail = true }) => {
   );
 };
 
-export default Item;
+export default ProductCard;
