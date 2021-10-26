@@ -1,21 +1,21 @@
 # E-commerce
 
-Live DEMo:
+Live DEMO:
 
 ## Proyecto Final React.js
 Realizado durante la cursada de Front-End React.js en Coder House.
 
 
 ## Pedido por Coder House:
--Un usuario debe poder ingresar, navegar por los productos e ir a sus detalles
+- Un usuario debe poder ingresar, navegar por los productos e ir a sus detalles.
 
--Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al carrito
+- Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al carrito.
 
--Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
+- Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
 
--Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
+- Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
 
--Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
+- Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
 
 
 
@@ -26,4 +26,8 @@ Realizado durante la cursada de Front-End React.js en Coder House.
 [Firebase] Facilito una solucion para simular una base de datos sin preocuparnos por el back-end. Su servicio es optimo y facil de comprender.
 
 [React-Router-Dom]v5.3.0 Utilizado para obtener un sistema solido de navegacion entre paginas mediante rutas para que funcione como spa.
+
+
+ Desarrollado por Juan Fuentes
+
 
