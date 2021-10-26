@@ -1,6 +1,6 @@
 # E-commerce
 
-Live DEMO:[Amor por los Aromas](https://vigorous-albattani-d16b61.netlify.app)
+Live DEMO:  [Amor por los Aromas](https://vigorous-albattani-d16b61.netlify.app)
 
 ## Proyecto Final React.js
 Realizado durante la cursada de Front-End React.js en Coder House.
