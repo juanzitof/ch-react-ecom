@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Typography, Spin } from "antd";
-import ItemList from "../ItemList";
-import { getFirestore } from "../../service/getFirebase";
+import ItemList from "../component/ItemList";
+import { getFirestore } from "../service/getFirebase";
 
-const ItemListContainer = ({ gretting }) => {
+const ProductListContainer = ({ gretting }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -44,4 +44,4 @@ const ItemListContainer = ({ gretting }) => {
   );
 };
 
-export default ItemListContainer;
+export default ProductListContainer;

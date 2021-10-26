@@ -3,7 +3,7 @@ import { SmileOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const PurchaseResult = () => {
+const PurchaseResultContainer = () => {
   const { id } = useParams();
 
   const renderExtra = (
@@ -23,4 +23,4 @@ const PurchaseResult = () => {
   );
 };
 
-export default PurchaseResult;
+export default PurchaseResultContainer;

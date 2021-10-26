@@ -1,13 +1,13 @@
-import { useCartContext } from "../../context/cartContext";
-import CartTable from "../CartTable";
+import { useCartContext } from "../context/cartContext";
+import CartTable from "../component/CartTable";
 import { Link, Redirect } from "react-router-dom";
 import { Button, Empty, Modal, Form } from "antd";
 
 import { useState } from "react";
-import FormCart from "../FormCart";
+import FormCart from "../component/FormCart";
 import firebase from "firebase";
 import "firebase/firestore";
-import { getFirestore } from "../../service/getFirebase";
+import { getFirestore } from "../service/getFirebase";
 
 
 const CartContainer = () => {
