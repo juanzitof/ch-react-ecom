@@ -8,7 +8,7 @@ const PurchaseResultContainer = () => {
 
   const renderExtra = (
     <Link to={"/"}>
-      <Button type="primary" size={"small"} shape="round">
+      <Button type="primary" size={"large"} shape="round">
         Volver al catalogo
       </Button>
     </Link>
