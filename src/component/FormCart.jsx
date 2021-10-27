@@ -1,7 +1,7 @@
 import { Form, Input } from "antd";
 
 const validateMessages = {
-  required: "es requerido!",
+  required: "${label} es requerido",
   types: {
     email: "el email ingresado no es valido!",
     number: "ingrese solo numeros!",
@@ -31,7 +31,7 @@ const FormCart = ({ form }) => {
         rules={[
           {
             required: true,
-            message: "Por favor ingrese su nombre!",
+            
           },
         ]}
       >
@@ -43,7 +43,8 @@ const FormCart = ({ form }) => {
         name={["user", "number"]}
         rules={[
           {
-            type: "",
+            required: true,
+    
           },
         ]}
       >
@@ -55,6 +56,7 @@ const FormCart = ({ form }) => {
         name={["user", "email"]}
         rules={[
           {
+            required: true,
             type: "email",
           },
         ]}

@@ -2,13 +2,12 @@ import { useCartContext } from "../context/cartContext";
 import CartTable from "../component/CartTable";
 import { Link, Redirect } from "react-router-dom";
 import { Button, Empty, Modal, Form } from "antd";
-import BackButton from '../component/BackButton';
+import BackButton from "../component/BackButton";
 import { useState } from "react";
 import FormCart from "../component/FormCart";
 import firebase from "firebase";
 import "firebase/firestore";
 import { getFirestore } from "../service/getFirebase";
-
 
 const CartContainer = () => {
   const { cartList, deleteCart, deleteList, accumulateBuy } = useCartContext();
@@ -30,9 +29,14 @@ const CartContainer = () => {
   const validateData = () => {
     setIsSendingData(true);
 
-    form.validateFields().then((values) => {
-      sendData(values);
-    });
+    form
+      .validateFields()
+      .then((values) => {
+        sendData(values);
+      })
+      .catch((err) => {
+        setIsSendingData(false);
+      });
   };
 
   const sendData = (userInfo) => {
@@ -62,7 +66,7 @@ const CartContainer = () => {
         setSuccessfulorder(resp.id);
         deleteList();
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   };
   if (successfulorder) {
     return (
@@ -89,9 +93,14 @@ const CartContainer = () => {
             onDelete={deleteCart}
             total={accumulateBuy()}
           />
-          
 
-          <Button type="primary" size="large" shape="round" onClick={showModal} className="button-finally">
+          <Button
+            type="primary"
+            size="large"
+            shape="round"
+            onClick={showModal}
+            className="button-finally"
+          >
             Terminar mi compra
           </Button>
 
